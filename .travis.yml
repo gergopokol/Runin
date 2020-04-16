@@ -55,6 +55,7 @@ branches:
         - temp_travis
 script:
     - cd ${DEPS_DIR}
+    - ls
     - make
     - TEST
     
