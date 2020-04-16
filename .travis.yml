@@ -1,0 +1,54 @@
+language: cpp
+
+env:
+  global:
+    # Ubuntu version
+    - LINUX_DIST=trusty
+    - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
+    # Global build options and C++ flags
+    - CXX_FLAGS="-Wall -pedantic -Werror -Wno-variadic-macros -Wno-long-long -Wno-shadow"
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: true
+      compiler: gcc
+      addons:
+       apt:
+         packages: &precise_latest_boost_packages
+           - gcc-4.8
+           - g++-4.8
+           #- gcov-4.9
+           - clang-3.7
+           - valgrind
+           # Misc
+           - python-yaml
+           - lcov
+           - libopencv-dev
+         sources: &precise_latest_boost_sources
+           - ubuntu-toolchain-r-test
+           - llvm-toolchain-precise-3.7
+    
+before_install: 
+    -GTEST_LINK = http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
+    -mkdir -p ${DEPS_DIR}/gtest
+    -cd ${DEPS_DIR}/gtest
+    -travis_retry wget --no-check-certificate --quiet -o - ${GTEST_LINK} 
+    -sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
+
+
+install:
+    - if [ "$CXX" = "clang++" ] && [ "$TRAVIS_OS_NAME" = "linux" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
+    - echo ${PATH}
+    - echo ${CXX}
+    - ${CXX} --version
+    - ${CXX} -v
+    - sudo pip install codecov
+    
+script:
+    - make
+    -TEST
+    
+after_success:
+    - codecov -t c376990f-2ad6-4f7b-bbdb-5378a52e295c -X gcov
