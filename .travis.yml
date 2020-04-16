@@ -34,6 +34,9 @@ before_install:
     - mkdir -p ${DEPS_DIR}/gtest
     - cd ${DEPS_DIR}/gtest
     - wget  http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
+    - sudo apt-get clean
+    - sudo apt-get update
+    - sudo apt-get install dpkg
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
 
 
