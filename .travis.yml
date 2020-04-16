@@ -33,7 +33,7 @@ matrix:
 before_install: 
     - mkdir -p ${DEPS_DIR}/gtest
     - cd ${DEPS_DIR}/gtest
-    - travis_retry wget --no-check-certificate --quiet -o - "http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb"
+    - wget  http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
 
 
