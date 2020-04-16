@@ -45,9 +45,12 @@ install:
     - ${CXX} --version
     - ${CXX} -v
     - sudo pip install codecov
-    
+
+branches:
+    only:
+        -temp_travis
 script:
-    - make
+    -make
     -TEST
     
 after_success:
