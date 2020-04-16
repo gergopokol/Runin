@@ -31,10 +31,9 @@ matrix:
            - llvm-toolchain-precise-3.7
     
 before_install: 
-    - GTEST_LINK ="http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb"
     - mkdir -p ${DEPS_DIR}/gtest
     - cd ${DEPS_DIR}/gtest
-    - travis_retry wget --no-check-certificate --quiet -o - ${GTEST_LINK} 
+    - travis_retry wget --no-check-certificate --quiet -o - "http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb"
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
 
 
