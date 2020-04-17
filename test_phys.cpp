@@ -18,9 +18,9 @@ const double reference_Coulomb_log = 18.35387764;
 const double reference_rho_max = 0.95;
 
 
-int main()
+int main(int argc, char** argv)
 {
-    ::testing::InitGoogleTest(&_argc, _argv);
+    ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
 
