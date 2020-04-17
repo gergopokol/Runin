@@ -1,11 +1,9 @@
 GOOGLE_TEST_INCLUDE = deps/gtest/usr/include
-GOOGLE_TEST_LIB = deps/gtest/usr/src/gtest
-GOOGLE_TEST_LIB2 =  deps/gtest/usr/lib/x86_64-linux-gnu
-GOOGLE_TEST_LIB3 = deps/gtest/usr/lib/x86_64-linux-gnu/pkgconfig
+GOOGLE_TEST_LIB = gtest
 
 G++ = g++
 G++_FLAGS = -c -Wall -std=c++11 -I $(GOOGLE_TEST_INCLUDE) 
-LD_FLAGS = -l $(GOOGLE_TEST_LIB) -l $(GOOGLE_TEST_LIB2) -l $(GOOGLE_TEST_LIB3) -l pthread
+LD_FLAGS = -L ${TRAVIS_BUILD_DIR}/deps -l $(GOOGLE_TEST_LIB)  -l pthread
 
 OBJECTS = critical_field.o growth_rate.o test_phys.o
 TARGET = TEST
