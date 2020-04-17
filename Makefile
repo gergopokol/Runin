@@ -1,7 +1,7 @@
-GOOGLE_TEST_INCLUDE = ${DEPS_DIR}/gtest/usr/include
-GOOGLE_TEST_LIB = ${DEPS_DIR}/gtest/usr/src/gtest
-GOOGLE_TEST_LIB2 =  ${DEPS_DIR}/gtest/usr/lib/x86_64-linux-gnu
-GOOGLE_TEST_LIB3 = ${DEPS_DIR}/gtest/usr/lib/x86_64-linux-gnu/pkgconfig
+GOOGLE_TEST_INCLUDE = deps/gtest/usr/include
+GOOGLE_TEST_LIB = deps/gtest/usr/src/gtest
+GOOGLE_TEST_LIB2 =  deps/gtest/usr/lib/x86_64-linux-gnu
+GOOGLE_TEST_LIB3 = deps/gtest/usr/lib/x86_64-linux-gnu/pkgconfig
 
 G++ = g++
 G++_FLAGS = -c -Wall -I $(GOOGLE_TEST_INCLUDE) 
