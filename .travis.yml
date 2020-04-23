@@ -63,6 +63,7 @@ branches:
 script:
     - cd ${TRAVIS_BUILD_DIR}
     - cmake CMakeLists.txt
+    - cd /home/travis/build/osrep/Runin
     - make
     - ./runTests
     
