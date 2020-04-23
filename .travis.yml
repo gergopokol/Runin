@@ -43,7 +43,7 @@ install:
     - sudo apt-get update
     - sudo apt-get install dpkg
     #opening
-    - sudo dpkg -i googletest_1.10.0-2_all.deb
+    #- sudo dpkg -i googletest_1.10.0-2_all.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
     - cd /usr/src/gtest
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
