@@ -12,14 +12,23 @@ matrix:
       sudo: true
       compiler: gcc
 
-before_install:
+install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
     - cd ${TRAVIS_BUILD_DIR}/DEPS
+    - wget  http://www.cmake.org/files/v3.5/cmake-3.5.1-Linux-x86_64.tar.gz 
     - wget  http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
     - wget  http://ftp.hr.debian.org/debian/pool/main/g/googletest/googletest_1.10.0-2_all.deb
+    #install cmake
+    - mkdir cmake 
+    - cd cmake
+    - tar --strip-components=1 -xz -C ${TRAVIS_BUILD_DIR}/DEPS/cmake
+    - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
+    - cd ../
+    #dpkg update
     - sudo apt-get clean
     - sudo apt-get update
     - sudo apt-get install dpkg
+    #opening
     - sudo dpkg -i googletest_1.10.0-2_all.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
     - cd /usr/src/gtest
