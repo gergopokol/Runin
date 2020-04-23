@@ -42,8 +42,8 @@ install:
     - echo ${PATH}
     #download gtest
     - cd ${TRAVIS_BUILD_DIR}/DEPS
-    - wget  http://ftp.de.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
-    - wget  http://ftp.de.debian.org/debian/pool/main/g/googletest/googletest_1.10.0-2_all.deb
+    - wget  http://ftp.de.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.8.0-10~bpo9+1_amd64.deb
+    - wget  http://ftp.de.debian.org/debian/pool/main/g/googletest/googletest_1.8.0-10~bpo9+1_amd64.deb
     #dpkg update
     - sudo apt-get clean
     - sudo apt-get update
