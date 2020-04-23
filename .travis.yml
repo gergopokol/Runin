@@ -12,23 +12,26 @@ matrix:
       sudo: true
       compiler: gcc
 
-before_install: 
-    - mkdir -p ${DEPS_DIR}/gtest
-    - cd ${DEPS_DIR}/gtest
+before_install:
+    - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
+    - cd ${TRAVIS_BUILD_DIR}/DEPS
     - wget  http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
     - wget  http://ftp.hr.debian.org/debian/pool/main/g/googletest/googletest_1.10.0-2_all.deb
-    - sudo apt-get clean
-    - sudo apt-get update
-    - sudo apt-get install dpkg
+#    - sudo apt-get clean
+#    - sudo apt-get update
+#    - sudo apt-get install dpkg
     - sudo dpkg -i googletest_1.10.0-2_all.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
-
+    - cd /usr/src/gtest
+    - sudo cmake CMakeLists.txt
+    - sudo make
+    - sudo cp *.a /usr/lib
 branches:
     only:
         - temp_travis
 script:
     - cd ${TRAVIS_BUILD_DIR}
-    - ls
+    - cmake CMakeLists.txt
     - make
-    - TEST
+    - ./runTests
     
