@@ -56,7 +56,7 @@ install:
     - cat CMakeLists.txt
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
     - sudo make
-    - sudo cp *.a /usr/lib
+    #- sudo cp *.a /usr/lib
 branches:
     only:
         - temp_travis
