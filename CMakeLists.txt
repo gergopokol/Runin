@@ -4,10 +4,11 @@ SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
  
-#file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/*.cpp)
-#list(REMOVE_ITEM SRC_FILES ${PROJECT_SOURCE_DIR}/main.cpp)
- 
+file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/*.cpp)
+list(REMOVE_ITEM SRC_FILES ${PROJECT_SOURCE_DIR}/main.cpp)
+include_directories(${PROJECT_SOURCE_DIR})
 # Link runTests with what we want to test and the GTest and pthread library
-#add_library(runTests_lib ${SRC_FILES})
+add_library(runTests_lib ${SRC_FILES})
 add_executable(runTests test_phys.cpp)
+target_link_libraries(runTests runTests_lib)
 target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
