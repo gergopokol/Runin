@@ -34,6 +34,11 @@ install:
     - sudo apt-get clean
     - sudo apt-get update
     - sudo apt-get install dpkg
+    #binutils update
+    - sudo apt-get install g++-7 binutils-2.26
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90
+    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 90
+    export PATH=/usr/lib/binutils-2.26/bin:${PATH}
     #opening
     - sudo dpkg -i googletest_1.10.0-2_all.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
@@ -48,7 +53,7 @@ branches:
         - temp_travis
 script:
     - cd ${TRAVIS_BUILD_DIR}
-    - cmake CMakeLists.txt
+    - sudo env "PATH=$PATH" cmake CMakeLists.txt
     - cd /home/travis/build/osrep/Runin
     - make
     - ./runTests
