@@ -6,11 +6,26 @@ env:
 
 
 matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: true
-      compiler: gcc
+    include:
+        os: linux
+        dist: trusty
+        sudo: true
+        compiler: gcc
+        addons:
+        apt:
+        packages: &precise_latest_boost_packages
+            - gcc-4.8
+            - g++-4.8
+            #- gcov-4.9
+            - clang-3.7
+            - valgrind
+            # Misc
+            - python-yaml
+            - lcov
+            - libopencv-dev
+        sources: &precise_latest_boost_sources
+           - ubuntu-toolchain-r-test
+           - llvm-toolchain-precise-3.7
 
 install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
