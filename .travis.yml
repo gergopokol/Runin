@@ -21,6 +21,7 @@ install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS/cmake
     - travis_retry wget --no-check-certificate --quiet -O - http://www.cmake.org/files/v3.5/cmake-3.5.1-Linux-x86_64.tar.gz | tar --strip-components=1 -xz -C ${TRAVIS_BUILD_DIR}/DEPS/cmake
     - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
+    - echo ${PATH}
     #dpkg update
     - sudo apt-get clean
     - sudo apt-get update
