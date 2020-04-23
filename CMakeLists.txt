@@ -9,5 +9,5 @@ include_directories(${GTEST_INCLUDE_DIRS})
  
 # Link runTests with what we want to test and the GTest and pthread library
 #add_library(runTests_lib ${SRC_FILES})
-add_executable(runTests tests.cpp)
+add_executable(runTests test_phys.cpp)
 target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)
