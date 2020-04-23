@@ -52,7 +52,7 @@ install:
     - sudo dpkg -i googletest_1.10.0-2_all.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
     - cd /usr/src/gtest
-    - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' >> /usr/src/gtest/CMakeLists.txt
+    - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a /usr/src/gtest/CMakeLists.txt
     - cat CMakeLists.txt
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
     - sudo make
