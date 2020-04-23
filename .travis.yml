@@ -3,7 +3,7 @@ language: cpp
 env:
   global:
     - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
-
+    - CXX_FLAGS="-Wall -pedantic -Werror -Wno-variadic-macros -Wno-long-long -Wno-shadow"
 
 matrix:
     include:
@@ -27,6 +27,11 @@ matrix:
            - ubuntu-toolchain-r-test
            - llvm-toolchain-precise-3.7
 
+before_install:
+    # Combine global build options with OS/compiler-dependent options
+    - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" "${ENV_CMAKE_OPTIONS}
+    - export CXX_FLAGS=${CXX_FLAGS}" "${ENV_CXX_FLAGS}
+
 install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
     #install cmake
@@ -43,7 +48,7 @@ install:
     - sudo apt-get update
     - sudo apt-get install dpkg
     #opening
-    #- sudo dpkg -i googletest_1.10.0-2_all.deb
+    - sudo dpkg -i googletest_1.10.0-2_all.deb
     - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
     - cd /usr/src/gtest
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
