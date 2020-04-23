@@ -71,7 +71,7 @@ TEST(CriticalField, IsFieldCritical) {
 	EXPECT_NEAR(1, is_field_critical(pro, reference_rho_max), 0.1);
 
 }
-
+/*
 TEST(GrowthRate, IsGrowthRateOverLimit) {
 	cell cell1, cell2;
 
@@ -91,4 +91,4 @@ TEST(GrowthRate, IsGrowthRateOverLimit) {
 
 	pro.push_back(cell2);
 	EXPECT_EQ(0, is_growth_rate_over_limit(pro, reference_growth_rate_2, reference_rho_max));
-}
+}*/
