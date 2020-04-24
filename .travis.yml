@@ -59,6 +59,7 @@ branches:
     only:
         - temp_travis
 script:
+    - sudo unlink /usr/lib/go-1.7/pkg/linux_amd64
     - cd ${TRAVIS_BUILD_DIR}
     - cmake ${CMAKE_OPTIONS} CMakeLists.txt
     - cd /home/travis/build/osrep/Runin
