@@ -5,6 +5,7 @@ project(test_phys-ci)
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 
 include_directories(/home/travis/build/osrep/Runin)
+include_directories(${GTEST_INCLUDE_DIRS})
 
 add_subdirectory(/home/travis/build/osrep/Runin/lib/googletest)
 add_subdirectory(/home/travis/build/osrep/Runin/tests)
