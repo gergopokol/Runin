@@ -39,12 +39,12 @@ install:
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
     - sudo make
     - sudo cp *.a ${TRAVIS_BUILD_DIR}
-    #- sudo cp *.a /usr/lib
 branches:
     only:
         - temp_travis
 script:
     - cd ${TRAVIS_BUILD_DIR}
+    - ls
     - cmake ${CMAKE_OPTIONS} CMakeLists.txt
     - cd /home/travis/build/osrep/Runin
     - make
