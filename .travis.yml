@@ -40,6 +40,7 @@ install:
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a googlemock/CMakeLists.txt
     - mkdir /home/travis/build/osrep/Runin/lib
     - mkdir gbuild && cd gbuild && cmake .. && make
+    - cd /home/travis/build/osrep/Runin/ext/googletest/gbuild
     - ls
     - cp *.a /home/travis/build/osrep/Runin/lib
 branches:
