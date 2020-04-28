@@ -23,12 +23,8 @@ int main(int argc, char** argv)
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-TEST(Simpletest, SimpleTest)
-{
-	EXPECT_EQ(1,1);
-}
 
-/*
+
 TEST(CoulombLog, CalculateCoulombLog) {
 	EXPECT_NEAR(reference_Coulomb_log, calculate_coulomb_log(reference_ne, reference_te), 0.0001);
 }
@@ -95,4 +91,4 @@ TEST(GrowthRate, IsGrowthRateOverLimit) {
 
 	pro.push_back(cell2);
 	EXPECT_EQ(0, is_growth_rate_over_limit(pro, reference_growth_rate_2, reference_rho_max));
-}*/
+}
