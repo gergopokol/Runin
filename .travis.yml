@@ -32,13 +32,10 @@ install:
     - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
     - echo ${PATH}
     #download gtest
-    - cd ${TRAVIS_BUILD_DIR}/DEPS
-    - sudo apt-get install libgtest-dev
-    - cd /usr/src/gtest
-    #- echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a /usr/src/gtest/CMakeLists.txt
-    - sudo env "PATH=$PATH" cmake CMakeLists.txt
-    - sudo make
-    - sudo cp *.a ${TRAVIS_BUILD_DIR}
+    - apt-get install -y git g++ make cmake 
+    - git clone https://github.com/google/googletest.git
+    - cd googletest
+    - mkdir gbuild && cd gbuild && cmake .. && make
 branches:
     only:
         - temp_travis
