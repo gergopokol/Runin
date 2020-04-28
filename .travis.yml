@@ -38,6 +38,7 @@ install:
     #- echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a /usr/src/gtest/CMakeLists.txt
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
     - sudo make
+    - sudo cp *.a ${TRAVIS_BUILD_DIR}
     #- sudo cp *.a /usr/lib
 branches:
     only:
