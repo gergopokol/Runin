@@ -2,7 +2,6 @@ language: cpp
 
 env:
   global:
-    - DEPS_DIR=${TRAVIS_BUILD_DIR}/deps
     - CXX_FLAGS="-std=c++11 -Wall -pedantic -Werror -Wno-variadic-macros -Wno-long-long -Wno-shadow"
 
 matrix:
@@ -26,13 +25,6 @@ before_install:
     - export CXX_FLAGS=${CXX_FLAGS}" "${ENV_CXX_FLAGS}
 
 install:
-    #gcc update
-    - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-    - sudo apt-get -qq update
-    - sudo apt-get -qq install g++-4.7
-    
-    - if [ "$CXX" = "clang++" ] && [ "$TRAVIS_OS_NAME" = "linux" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
-    - sudo pip install codecov
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
     #install cmake
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS/cmake
@@ -41,17 +33,9 @@ install:
     - echo ${PATH}
     #download gtest
     - cd ${TRAVIS_BUILD_DIR}/DEPS
-    - wget  http://ftp.hu.debian.org/debian/pool/main/g/googletest/libgtest-dev_1.10.0-2_amd64.deb
-    - wget  http://ftp.hr.debian.org/debian/pool/main/g/googletest/googletest_1.10.0-2_all.deb
-    #dpkg update
-    - sudo apt-get clean
-    - sudo apt-get update
-    - sudo apt-get install dpkg
-    #opening
-    - sudo dpkg -i googletest_1.10.0-2_all.deb
-    - sudo dpkg -i libgtest-dev_1.10.0-2_amd64.deb
+    - sudo apt-get install libgtest-dev
     - cd /usr/src/gtest
-    - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a /usr/src/gtest/CMakeLists.txt
+    #- echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a /usr/src/gtest/CMakeLists.txt
     - sudo env "PATH=$PATH" cmake CMakeLists.txt
     - sudo make
     #- sudo cp *.a /usr/lib
@@ -59,7 +43,6 @@ branches:
     only:
         - temp_travis
 script:
-    - sudo unlink /usr/lib/go-1.7/pkg/linux_amd64
     - cd ${TRAVIS_BUILD_DIR}
     - cmake ${CMAKE_OPTIONS} CMakeLists.txt
     - cd /home/travis/build/osrep/Runin
