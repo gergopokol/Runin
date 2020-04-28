@@ -54,5 +54,5 @@ script:
     - cd /home/travis/build/osrep/Runin/build
     - make all
     - ls
-    - runTests
+    - ./runTests
     
