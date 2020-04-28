@@ -32,7 +32,7 @@ install:
     - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
     - echo ${PATH}
     #download gtest
-    - mkdir ${TRAVIS_BUILD_DIR}/lib && cd ${TRAVIS_BUILD_DIR}/lib
+    - mkdir /home/travis/build/osrep/Runin/lib && cd /home/travis/build/osrep/Runin/lib
     - git clone https://github.com/google/googletest.git
     - cd googletest
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a CMakeLists.txt
@@ -43,7 +43,7 @@ branches:
     only:
         - temp_travis
 script:
-    - cd ${TRAVIS_BUILD_DIR}
+    - cd /home/travis/build/osrep/Runin
     - ls
     - cmake .. -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" 
     - cd /home/travis/build/osrep/Runin
