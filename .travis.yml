@@ -45,7 +45,8 @@ branches:
 script:
     - cd /home/travis/build/osrep/Runin
     - ls
-    - cmake .. -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" 
+    - mkdir build && cd build 
+    - cmake .. 
     - cd /home/travis/build/osrep/Runin
     - make
     - ./runTests
