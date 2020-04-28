@@ -32,19 +32,20 @@ install:
     - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
     - echo ${PATH}
     #download gtest
+    - mkdir ${TRAVIS_BUILD_DIR}/lib && cd ${TRAVIS_BUILD_DIR}/lib
     - git clone https://github.com/google/googletest.git
     - cd googletest
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a CMakeLists.txt
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a googletest/CMakeLists.txt
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a googlemock/CMakeLists.txt
-    - mkdir gbuild && cd gbuild && cmake .. && make
+    #- mkdir gbuild && cd gbuild && cmake .. && make
 branches:
     only:
         - temp_travis
 script:
     - cd ${TRAVIS_BUILD_DIR}
     - ls
-    - cmake ${CMAKE_OPTIONS} CMakeLists.txt
+    - cmake .. -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" 
     - cd /home/travis/build/osrep/Runin
     - make
     - ./runTests
