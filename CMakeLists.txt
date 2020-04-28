@@ -7,7 +7,7 @@ SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 include_directories(${TRAVIS_BUILD_DIR})
 
 
-add_subdirectory(${TRAVIS_BUILD_DIR}/lib/googletest)
+add_subdirectory(/home/travis/build/osrep/Runin/lib/googletest)
 add_subdirectory(tests)
  
  
