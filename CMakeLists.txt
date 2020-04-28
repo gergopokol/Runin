@@ -4,12 +4,10 @@ project(test_phys-ci)
 
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 
-include_directories(${TRAVIS_BUILD_DIR})
-
+include_directories(/home/travis/build/osrep/Runin)
 
 add_subdirectory(/home/travis/build/osrep/Runin/lib/googletest)
-add_subdirectory(tests)
- 
+add_subdirectory(/home/travis/build/osrep/Runin/tests)
  
 set(BINARY ${CMAKE_PROJECT_NAME})
 file(GLOB_RECURSE SOURCES LIST_DIRECTORIES true *.h *.cpp)
