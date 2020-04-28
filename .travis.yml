@@ -48,5 +48,5 @@ script:
     - mkdir build && cd build 
     - cmake .. 
     - cd /home/travis/build/osrep/Runin/build
-    - make
+    - make all
     
