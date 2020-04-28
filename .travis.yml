@@ -32,7 +32,6 @@ install:
     - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
     - echo ${PATH}
     #download gtest
-    - apt-get install -y git g++ make cmake 
     - git clone https://github.com/google/googletest.git
     - cd googletest
     - mkdir gbuild && cd gbuild && cmake .. && make
