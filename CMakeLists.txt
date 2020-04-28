@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 # Locate GTest
 
-set(GTEST_ROOT "${TRAVIS_BUILD_DIR}/DEPS" CACHE PATH "Path to googletest")
+set(GTEST_ROOT "/home/travis/build/osrep/Runin/DEPS" CACHE PATH "Path to googletest")
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
  
