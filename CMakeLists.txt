@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.6)
 
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O3" )
+SET(CMAKE_EXE_LINKER_FLAGS_INIT "-lgcov --coverage")
 # Locate GTest
 add_compile_options(-fprofile-use -fprofile-arcs -ftest-coverage -fprofile-generate)
 
