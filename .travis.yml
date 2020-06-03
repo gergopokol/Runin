@@ -54,4 +54,5 @@ script:
     - ls
     - ./runTests
     - gcov growth_rate.cpp
-    
+    - gcov test_phys.cpp
+
