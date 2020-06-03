@@ -19,10 +19,6 @@ matrix:
                     - ubuntu-toolchain-r-test
                     - llvm-toolchain-precise-3.7
 
-before_install:
-    # Combine global build options with OS/compiler-dependent options
-    - export CMAKE_OPTIONS=${CMAKE_OPTIONS}" "${ENV_CMAKE_OPTIONS}
-    - export CXX_FLAGS=${CXX_FLAGS}" "${ENV_CXX_FLAGS}
 
 install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
@@ -30,18 +26,20 @@ install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS/cmake
     - travis_retry wget --no-check-certificate --quiet -O - http://www.cmake.org/files/v3.5/cmake-3.5.1-Linux-x86_64.tar.gz | tar --strip-components=1 -xz -C ${TRAVIS_BUILD_DIR}/DEPS/cmake
     - export PATH=${TRAVIS_BUILD_DIR}/DEPS/cmake/bin:${PATH}
-    - echo ${PATH}
     #download gtest
     - mkdir /home/travis/build/osrep/Runin/ext && cd /home/travis/build/osrep/Runin/ext
     - git clone https://github.com/google/googletest.git
     - cd googletest
+    #appending c++11 flag
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a CMakeLists.txt
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a googletest/CMakeLists.txt
     - echo 'SET(CMAKE_CXX_FLAGS "-std=c++11 -O3")' | sudo tee -a googlemock/CMakeLists.txt
+    #building gtest
     - mkdir /home/travis/build/osrep/Runin/lib
     - mkdir gbuild && cd gbuild && cmake .. && make
     - cd /home/travis/build/osrep/Runin/ext/googletest/gbuild/lib
     - ls
+    #copying lib files
     - cp *.a /home/travis/build/osrep/Runin/lib
 branches:
     only:
@@ -55,4 +53,5 @@ script:
     - make all
     - ls
     - ./runTests
+    - gcov growth_rate.cpp
     
