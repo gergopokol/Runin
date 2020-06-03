@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 SET(CMAKE_CXX_FLAGS "-std=c++11 -O3" )
 # Locate GTest
+add_compile_options(-fprofile-arcs -ftest-coverage)
 
 include_directories(/home/travis/build/osrep/Runin/ext/googletest/googletest/include/)
  
