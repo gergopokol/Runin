@@ -4,7 +4,7 @@ SET(CMAKE_CXX_FLAGS "-std=c++11 -O3" )
 #SET(CMAKE_EXE_LINKER_FLAGS_INIT "-lgcov --coverage")
 # Locate GTest
 add_compile_options(-lgcov --coverage)
-target_link_options(-lgcov --coverage)
+add_link_options(-lgcov --coverage)
 include_directories(/home/travis/build/osrep/Runin/ext/googletest/googletest/include/)
  
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/*.cpp)
