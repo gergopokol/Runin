@@ -7,10 +7,11 @@ SET(CMAKE_CXX_FLAGS "-ggdb -O3 -fPIC -std=c++0x -march=native -mno-avx")
 
 # Locate GTest
 add_compile_options(-std=c++11 -lgcov --coverage)
+include_directories(${PROJECT_SOURCE_DIR}/*.h)
 include_directories(/home/travis/build/osrep/Runin/ext/googletest/googletest/include/)
  
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/*.cpp)
-include_directories(${PROJECT_SOURCE_DIR}/*.h)
+
 
 add_library(runTests_lib ${SRC_FILES})
 add_executable(runTests test_phys.cpp)
