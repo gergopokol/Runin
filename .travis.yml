@@ -19,10 +19,11 @@ matrix:
                     - ubuntu-toolchain-r-test
                     - llvm-toolchain-precise-3.7
 
-            sonarcloud:
-                organization: "sonarcloud"
-                token:
-                    secure: "45ed46f4a3a282cc9f918e9c928f9afce86ba123"
+addons:
+    sonarcloud:
+        organization: "sonarcloud"
+        token:
+            secure: "45ed46f4a3a282cc9f918e9c928f9afce86ba123"
                 
 install:
     - mkdir -p ${TRAVIS_BUILD_DIR}/DEPS
