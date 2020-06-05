@@ -6,7 +6,7 @@ env:
 
 addons:
     sonarcloud:
-        organization: "sonarcloud"
+        organization: "sonarclo"
         token:
             secure: "45ed46f4a3a282cc9f918e9c928f9afce86ba123"
 
@@ -24,7 +24,10 @@ matrix:
                 sources:  &precise_latest_boost_sources
                     - ubuntu-toolchain-r-test
                     - llvm-toolchain-precise-3.7
-
+            sonarcloud:
+                organization: "sonarclo"
+                token:
+                    secure: "45ed46f4a3a282cc9f918e9c928f9afce86ba123"
 
                 
 install:
