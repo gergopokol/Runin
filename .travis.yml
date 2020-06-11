@@ -59,7 +59,8 @@ script:
     - ls
     - ./runTests
     - cd ..
-    
+    - travis login --pro
+    - travis encrypt --pro 45ed46f4a3a282cc9f918e9c928f9afce86ba123
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
     - sonar-scanner
     - gcov growth_rate.cpp
