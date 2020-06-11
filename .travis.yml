@@ -59,6 +59,7 @@ script:
     - ls
     - ./runTests
     - cd ..
+    
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
     - sonar-scanner
     - gcov growth_rate.cpp
