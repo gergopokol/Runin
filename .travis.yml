@@ -62,7 +62,7 @@ script:
     #sonarcloud stuff
     - gem install travis
     - travis login --pro
-    - echo "y" | cmd  #answer
+    - echo "y" | travis login --github-token $GH_TOKEN | cmd  #answer
     - travis encrypt --pro 45ed46f4a3a282cc9f918e9c928f9afce86ba123
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
     - sonar-scanner
