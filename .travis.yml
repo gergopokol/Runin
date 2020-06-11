@@ -61,7 +61,7 @@ script:
     - cd ..
     #sonarcloud stuff
     - gem install travis
-    - echo "y" | cmd 
+    - echo "y" | travis  
     - travis login --pro
     #- echo "travis y" | travis   #answer
     - echo "yes" #| travis login --github-token $GH_TOKEN
