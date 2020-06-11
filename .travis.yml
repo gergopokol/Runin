@@ -61,9 +61,9 @@ script:
     - cd ..
     #sonarcloud stuff
     - gem install travis
-    - echo "y" | travis 
+    - echo "travis y" | travis 
     - travis login --pro
-    - echo "y" | travis   #answer
+    - echo "travis y" | travis   #answer
     - travis encrypt --pro 45ed46f4a3a282cc9f918e9c928f9afce86ba123
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
     - sonar-scanner
