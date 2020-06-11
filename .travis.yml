@@ -66,7 +66,7 @@ script:
     #- echo "travis y" | travis   #answer
     - echo "yes" | travis 
     - travis encrypt --pro 45ed46f4a3a282cc9f918e9c928f9afce86ba123
-    #- echo "yes" | travis 
+    - echo "yes" | travis 
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
     - sonar-scanner
     #gcov stuff
