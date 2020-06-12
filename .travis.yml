@@ -4,37 +4,28 @@ env:
   global:
     - CXX_FLAGS="-std=c++11 -Wall -pedantic -Werror -Wno-variadic-macros -Wno-long-long -Wno-shadow"
 
-
-matrix:
-    include:
-        os: linux
-        dist: trusty
-        sudo: true
-        compiler: gcc
-        addons:
-            apt:
-                packages: &precise_latest_boost_packages
-                    - gcc-5
-                    - g++-5
-                    - cmake
-                sources:  &precise_latest_boost_sources
-                    - ubuntu-toolchain-r-test
-                    - llvm-toolchain-precise-3.7
-
-
-                
+dist: xenial
+compiler: gcc
+addons:
+    apt:
+        packages: &precise_latest_boost_packages
+            - gcc-5
+            - g++-5
+            - cmake
+        sources:  &precise_latest_boost_sources
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.7
+               
 
 branches:
     only:
         - temp_travis
 script:
-    - cd /home/travis/build/osrep/Runin
-    - ls
     - mkdir build && cd build 
     - cmake .. 
-    - cd /home/travis/build/osrep/Runin/build
     - make all
     - ls
+    - cd ..
     - ./runTests
 
 
