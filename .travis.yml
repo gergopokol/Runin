@@ -33,5 +33,5 @@ script:
     # Wrap the compilation with the Sonar Build Wrapper
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
     # Run Sonar analysis
-    - sonar-scanner
+    - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
