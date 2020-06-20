@@ -33,3 +33,13 @@ script:
     # run Sonar analysis
     - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
+    # Prepare the build system
+    - mkdir build && cd build
+    - cmake ..
+    # Go back to the project root folder in order for Sonar to find its config file
+    - cd ..
+    # Wrap the compilation with the Sonar Build Wrapper
+    - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
+    # Run Sonar analysis
+    - sonar-scanner
+
