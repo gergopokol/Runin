@@ -24,15 +24,7 @@ addons:
 branches:
     only:
         - temp_travis
-script:    
-    - mkdir build && cd build 
-    # build software and log build for SonarCloud with build-wrapper
-    - build-wrapper-linux-x86-64 --out-dir bw-output cmake .. && make all
-    # TODO one of the tests is failing in CI
-    # - ./runTests
-    # run Sonar analysis
-    - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
-
+script:
     # Prepare the build system
     - mkdir build && cd build
     - cmake ..
