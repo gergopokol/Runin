@@ -31,5 +31,5 @@ script:
     # TODO one of the tests is failing in CI
     # - ./runTests
     # run Sonar analysis
-     - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
+    - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
