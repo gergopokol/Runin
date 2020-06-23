@@ -1,9 +1,4 @@
 language: cpp
-
-env:
-  global:
-    - CXX_FLAGS="-std=c++11 -Wall -pedantic -Werror -Wno-variadic-macros -Wno-long-long -Wno-shadow"
-
 os: linux
 dist: xenial
 compiler: gcc
