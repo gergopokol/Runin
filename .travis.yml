@@ -20,8 +20,9 @@ script:
     - cd ..
     # Wrap the compilation with the Sonar Build Wrapper
     - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
-    # Run tests
-    # TODO
+    # Run tests 
+    # TODO use cmake --build build --target test ??
+    - ./build/test/RuninTests
     # Run Sonar analysis
     - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
 
