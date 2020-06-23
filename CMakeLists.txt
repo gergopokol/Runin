@@ -12,8 +12,12 @@ include_directories("include")
 
 add_subdirectory(src)
 
-option(RUNIN_ENABLE_TESTS "Enable tests" OFF)
 
-if (RUNIN_ENABLE_TESTS)
-    add_subdirectory(test)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    include(CTest)
+endif()
+
+# Include tests in build only when specified
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND BUILD_TESTING)
+    add_subdirectory(tests)
 endif()

@@ -32,4 +32,4 @@ SET(TEST_SOURCES
 add_executable(RuninTests ${TEST_SOURCES})
 
 target_link_libraries(RuninTests Runin gtest_main pthread)
-add_test(NAME RuninTests COMMAND RuninTests)
+add_test(NAME test_phys COMMAND RuninTests)
