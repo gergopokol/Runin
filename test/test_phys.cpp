@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "critical_field.h"
-#include "growth_rate.h"
-#include "cell.h"
+#include "runin/critical_field.h"
+#include "runin/growth_rate.h"
+#include "runin/cell.h"
 
 const double reference_te = 1e5;
 const double reference_ne = 1e21;

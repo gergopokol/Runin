@@ -1,8 +1,8 @@
 #include <cmath>
 #include <stdlib.h>
-#include "constants.h"
-#include "critical_field.h"
-#include "products.h"
+#include "runin/constants.h"
+#include "runin/critical_field.h"
+#include "runin/products.h"
 
 /* Critical field warning
 

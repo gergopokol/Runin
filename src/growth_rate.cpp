@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <cmath>
 #include <vector>
-#include "constants.h"
-#include "growth_rate.h"
-#include "critical_field.h"
+#include "runin/constants.h"
+#include "runin/growth_rate.h"
+#include "runin/critical_field.h"
 
 /*
 Growth rate warning
